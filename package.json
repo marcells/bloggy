@@ -1,0 +1,40 @@
+{
+  "name": "bloggy",
+  "description": "Small and lightweight markdown blog engine.",
+  "version": "0.0.1",
+  "author": "Marcell Spies <marcells@gmx.de>",
+  "contributors": [
+    {
+      "name": "Marcell Spies",
+      "email": "marcells@gmx.de"
+    }
+  ],
+  "dependencies": {
+    "marked": "~0.3.0",
+    "glob": "~3.2.8",
+    "linq": "~3.0.4-beta",
+    "slug": "~0.4.0",
+    "highlight.js": "~8.0.0",
+    "rss": "~0.3.2"
+  },
+  "devDependencies": {
+    "grunt-jslint": "~1.1.4",
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3"
+  },
+  "keywords": [
+    "blog",
+    "markdown",
+    "engine",
+    "small",
+    "lightweight"
+  ],
+  "repository": "git://github.com/marcells/bloggy",
+  "scripts": {
+    "test": "make test"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "license": "MIT"
+}

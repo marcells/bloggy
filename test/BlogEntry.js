@@ -1,9 +1,18 @@
 /*global describe, it */
 "use strict";
 
-var BlogEntry = require('../lib/BlogEntry');
+var proxyquire = require('proxyquire');
 
 describe('BlogEntry', function () {
+    var fsStub = {
+            readFile: function (path, callback) {
+                callback(null, "file content");
+            }
+        },
+        BlogEntry = proxyquire('../lib/BlogEntry', {
+            'fs': fsStub
+        });
+
     describe('construction', function () {
         var metadata = {
             id: "id",
@@ -36,6 +45,24 @@ describe('BlogEntry', function () {
             var entry = new BlogEntry(metadata);
 
             entry.tagNames.should.eql([ "tag1", "tag2", "tag3" ]);
+        });
+    });
+
+    describe('load()', function () {
+        it('should be able to load the file content', function (done) {
+            var metadata = {},
+                configuration = {
+                    parseMarkdownContent: function (content, options, callback) {
+                        callback('some markdown content');
+                    }
+                },
+                options = {},
+                entry = new BlogEntry(metadata, configuration, options);
+
+            entry.load(function () {
+                entry.content.should.equal('some markdown content');
+                done();
+            });
         });
     });
 });

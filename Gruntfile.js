@@ -3,7 +3,8 @@ module.exports = function(grunt) {
         jslint: {
             library: {
                 src: [
-                    'lib/**/*.js'
+                    'lib/**/*.js',
+                    'test/**/*.js'
                 ],
                 directives: {
                     node: true,
@@ -17,16 +18,30 @@ module.exports = function(grunt) {
                 }
             }
         },
+        mochaTest: {
+            library: {
+                options: {
+                    reporter: 'spec',
+                    ui: 'bdd',
+                    require: [
+                        'should'
+                    ]
+                },
+                src: ['test/**/*.js']
+            }
+        },
         watch : {
             files: [ 
-                'lib/**/*.js'
+                'lib/**/*.js',
+                'test/**/*.js'
             ],
-            tasks: [ 'jslint:library' ]
+            tasks: [ 'default' ]
         }
 	});
 
-	grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-watch');
 
-	grunt.registerTask('default', ['jslint']);
+	grunt.registerTask('default', ['jslint', 'mochaTest']);
 };

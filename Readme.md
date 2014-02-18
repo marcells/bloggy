@@ -22,7 +22,7 @@ The blog content has to use the following folder structure.
 Metadata (meta.json)
 --------------------
 
-```
+```JSON
 {
     "longTitle": "Title of the blog entry",
     "shortTitle": "entry1",
@@ -37,7 +37,7 @@ Metadata (meta.json)
 Code
 ----
 
-```
+```Javascript
 var path = require('path'),
     bloggy = require('bloggy'),
     engine = bloggy();

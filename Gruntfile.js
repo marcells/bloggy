@@ -23,12 +23,19 @@ module.exports = function(grunt) {
                 options: {
                     reporter: 'spec',
                     ui: 'bdd',
-                    require: [
-                        'should'
-                    ]
+                    require: [ 'should' ]
                 },
                 src: ['test/**/*.js']
-            }
+            },
+            coverage: {
+                options: {
+                    reporter: 'html-cov',
+                    require: [ 'coverage/blanket', 'should' ],
+                    quiet: true,
+                    captureFile: 'coverage.html'
+                },
+                src: [ 'test/**/*.js' ]
+            },
         },
         watch : {
             files: [ 
@@ -42,6 +49,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jslint');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-mocha-cov');
 
 	grunt.registerTask('default', ['jslint', 'mochaTest']);
 };

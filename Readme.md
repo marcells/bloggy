@@ -3,7 +3,7 @@ Bloggy
 
 Small and lightweight markdown blog engine for node.js.
 
-The code is linted and tested with mocha. You can use the grunt task to generate the code coverage. Just enter `grunt` at the command prompt.
+The code is checked with jslint and tested with mocha. You can use the grunt task to generate the code coverage. Just enter `grunt` at the command prompt.
 
 **Currently the documentation is incomplete!**
 
@@ -18,8 +18,10 @@ The blog content has to use the following folder structure.
         - content.md
     - 2013-12-8-9-45
         - meta.json
-        - content.json
+        - content.md
     - ...
+
+The folder names below the main "content" folder are used as identifier and publishing date of the article. Use the format "year-month-day-hour-minute".
 
 Metadata (meta.json)
 --------------------

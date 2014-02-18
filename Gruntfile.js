@@ -24,20 +24,11 @@ module.exports = function(grunt) {
                     reporter: 'spec',
                     ui: 'bdd',
                     require: [
-                        'coverage/blanket',
                         'should'
                     ]
                 },
                 src: ['test/**/*.js']
-            },
-            coverage: {
-                options: {
-                    reporter: 'html-cov',
-                    quiet: true,
-                    captureFile: 'coverage.html'
-                },
-                src: ['test/**/*.js']
-              }
+            }
         },
         watch : {
             files: [ 

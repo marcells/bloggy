@@ -17,7 +17,7 @@ describe('bloggy', function () {
                     slug: 'Some-test-1',
                     tags: []
                 }, {
-                    id: '2001-1-1-12-15',
+                    id: '2000-1-1-12-15',
                     entryPath: '/content',
                     contentPath: '/content/2001-1-1-12-15/content.md',
                     metaPath: '/content/2001-1-1-12-15/meta.json',
@@ -52,16 +52,22 @@ describe('bloggy', function () {
     });
 
     describe('entries.all.orderedByName()', function () {
-        it.skip('should return the loaded entries ordered by their name', function () {
-            bloggy.entries.all.orderedByName().length.should.eql(2);
-            bloggy.entries.all.orderedByName().should.eql([]);
+        it('should return the loaded entries ordered by their name', function () {
+            var result = bloggy.entries.all.orderedByName();
+
+            result.length.should.eql(2);
+            result[0].id.should.eql('2000-1-1-12-00');
+            result[1].id.should.eql('2000-1-1-12-15');
         });
     });
 
     describe('entries.all.orderedByDate()', function () {
-        it.skip('should return the loaded entries ordered by their date', function () {
-            bloggy.entries.all.orderedByDate().length.should.eql(2);
-            bloggy.entries.all.orderedByDate().should.eql([]);
+        it('should return the loaded entries ordered by their date', function () {
+            var result = bloggy.entries.all.orderedByDate();
+
+            result.length.should.eql(2);
+            result[0].id.should.eql('2000-1-1-12-15');
+            result[1].id.should.eql('2000-1-1-12-00');
         });
     });
 });

@@ -23,8 +23,7 @@ describe('BlogEntry', function () {
             longTitle: "longTitle",
             date: new Date(2014, 0, 1, 10, 15),
             slug: "abcdefghi",
-            tags: [ { name : "tag1" }, { name: "tag2" }, { name: "tag3" }],
-            tagNames: [ "tag1", "tag2" ]
+            tags: [ { name : "tag1" }, { name: "tag2" }, { name: "tag3" }]
         };
 
         it('should wrap the metadata properties', function () {
@@ -62,6 +61,31 @@ describe('BlogEntry', function () {
             entry.load(function () {
                 entry.content.should.equal('some markdown content');
                 done();
+            });
+        });
+    });
+
+    describe('load()', function () {
+        it('should cache the loaded content and the parsing operation should only be called once', function (done) {
+            var numberOfParsingCalls = 0,
+                metadata = {},
+                configuration = {
+                    parseMarkdownContent: function (content, options, callback) {
+                        numberOfParsingCalls += 1;
+                        callback('some markdown content');
+                    }
+                },
+                options = {},
+                entry = new BlogEntry(metadata, configuration, options);
+
+            entry.load(function () {
+                entry.load(function () {
+                    entry.load(function () {
+                        entry.content.should.equal('some markdown content');
+                        numberOfParsingCalls.should.equal(1);
+                        done();
+                    });
+                });
             });
         });
     });

@@ -3,7 +3,9 @@ Bloggy
 
 Small and lightweight markdown blog engine for node.js.
 
-** Currently the documentation is incomplete! **
+The code is linted and tested with mocha. You can use the grunt task to generate the code coverage. Just enter `grunt` at the command prompt.
+
+**Currently the documentation is incomplete!**
 
 Folder structure
 ----------------

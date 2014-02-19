@@ -18,6 +18,23 @@ module.exports = function(grunt) {
                 }
             }
         },
+        clean: {
+            coverage: {
+                src: ['coverage/']
+            }
+        },
+        copy: {
+            coverage: {
+                src: ['test/**'],
+                dest: 'coverage/'
+            }
+        },
+        blanket: {
+            coverage: {
+                src: ['lib/'],
+                dest: 'coverage/lib/'
+            }
+        },
         mochaTest: {
             library: {
                 options: {
@@ -25,16 +42,16 @@ module.exports = function(grunt) {
                     ui: 'bdd',
                     require: [ 'should' ]
                 },
-                src: ['test/**/*.js']
-            },
+                src: ['coverage/test/**/*.js']
+            },        
             coverage: {
                 options: {
                     reporter: 'html-cov',
-                    require: [ 'coverage/blanket', 'should' ],
+                    require: [ 'should' ],
                     quiet: true,
                     captureFile: 'coverage.html'
                 },
-                src: [ 'test/**/*.js' ]
+                src: ['coverage/test/**/*.js']
             },
         },
         watch : {
@@ -47,9 +64,12 @@ module.exports = function(grunt) {
 	});
 
     grunt.loadNpmTasks('grunt-jslint');
-    grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-mocha-cov');
+    grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-blanket');
 
-	grunt.registerTask('default', ['jslint', 'mochaTest']);
+    grunt.registerTask('test', ['clean', 'blanket', 'copy', 'mochaTest']);
+	grunt.registerTask('default', ['jslint', 'test']);
 };

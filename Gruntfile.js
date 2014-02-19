@@ -58,6 +58,14 @@ module.exports = function(grunt) {
                     reporter: 'travis-cov'
                 },
                 src: ['coverage/test/**/*.js']
+            },
+            'mocha-lcov-reporter': {
+                options: {
+                    reporter: 'mocha-lcov-reporter',
+                    quiet: true,
+                    captureFile: 'lcov.info'
+                },
+                src: ['coverage/test/**/*.js']
             }
         },
         watch : {

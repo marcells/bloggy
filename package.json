@@ -28,7 +28,8 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-cli": "~0.1.13",
-    "travis-cov": "~0.2.5"
+    "travis-cov": "~0.2.5",
+    "mocha-lcov-reporter": "0.0.1"
   },
   "keywords": [
     "blog",

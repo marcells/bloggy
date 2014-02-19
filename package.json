@@ -49,11 +49,6 @@
     },
     "license": "MIT",
     "config": {
-        "blanket": {
-            "pattern": [
-                "lib"
-            ]
-        },
         "travis-cov": {
             "threshold": 70
         }

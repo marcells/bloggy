@@ -37,7 +37,8 @@
   ],
   "repository": "git://github.com/marcells/bloggy",
   "scripts": {
-    "test": "make test"
+    "test": "grunt test",
+    "ci": "grunt"
   },
   "engines": {
     "node": ">= 0.8.0"

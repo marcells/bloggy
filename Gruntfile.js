@@ -53,6 +53,12 @@ module.exports = function(grunt) {
                 },
                 src: ['coverage/test/**/*.js']
             },
+            'travis-cov': {
+                options: {
+                    reporter: 'travis-cov'
+                },
+                src: ['coverage/test/**/*.js']
+            }
         },
         watch : {
             files: [ 

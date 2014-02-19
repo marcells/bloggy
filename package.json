@@ -1,61 +1,61 @@
 {
-  "name": "bloggy",
-  "description": "Small and lightweight markdown blog engine.",
-  "version": "0.0.4",
-  "author": "Marcell Spies <marcells@gmx.de>",
-  "contributors": [
-    {
-      "name": "Marcell Spies",
-      "email": "marcells@gmx.de"
-    }
-  ],
-  "dependencies": {
-    "marked": "~0.3.0",
-    "glob": "~3.2.8",
-    "linq": "~3.0.4-beta",
-    "slug": "~0.4.0",
-    "highlight.js": "~8.0.0",
-    "rss": "~0.3.2"
-  },
-  "devDependencies": {
-    "should": "~3.1.2",
-    "proxyquire": "~0.5.2",
-    "grunt": "~0.4.2",
-    "grunt-jslint": "~1.1.4",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-mocha-test": "~0.9.0",
-    "grunt-blanket": "0.0.8",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-coveralls": "~0.3.0",
-    "grunt-cli": "~0.1.13",
-    "travis-cov": "~0.2.5",
-    "mocha-lcov-reporter": "0.0.1"
-  },
-  "keywords": [
-    "blog",
-    "markdown",
-    "engine",
-    "small",
-    "lightweight"
-  ],
-  "repository": "git://github.com/marcells/bloggy",
-  "scripts": {
-    "test": "grunt test",
-    "ci": "grunt ci"
-  },
-  "engines": {
-    "node": ">= 0.8.0"
-  },
-  "license": "MIT",
-  "config": {
-    "blanket": {
-      "pattern": [
-        "lib"
-      ]
+    "name": "bloggy",
+    "description": "Small  and  lightweight  markdown  blog  engine.",
+    "version": "0.0.4",
+    "author": "Marcell  Spies  <marcells@gmx.de>",
+    "contributors": [
+        {
+            "name": "Marcell  Spies",
+            "email": "marcells@gmx.de"
+        }
+    ],
+    "dependencies": {
+        "marked": "~0.3.0",
+        "glob": "~3.2.8",
+        "linq": "~3.0.4-beta",
+        "slug": "~0.4.0",
+        "highlight.js": "~8.0.0",
+        "rss": "~0.3.2"
     },
-    "travis-cov": {
-      "threshold": 70
+    "devDependencies": {
+        "should": "~3.1.2",
+        "proxyquire": "~0.5.2",
+        "grunt": "~0.4.2",
+        "grunt-jslint": "~1.1.4",
+        "grunt-contrib-watch": "~0.5.3",
+        "grunt-mocha-test": "~0.9.0",
+        "grunt-blanket": "0.0.8",
+        "grunt-contrib-clean": "~0.5.0",
+        "grunt-contrib-copy": "~0.5.0",
+        "grunt-coveralls": "~0.3.0",
+        "grunt-cli": "~0.1.13",
+        "travis-cov": "~0.2.5",
+        "mocha-lcov-reporter": "0.0.1"
+    },
+    "keywords": [
+        "blog",
+        "markdown",
+        "engine",
+        "small",
+        "lightweight"
+    ],
+    "repository": "git://github.com/marcells/bloggy",
+    "scripts": {
+        "test": "grunt test",
+        "ci": "grunt ci"
+    },
+    "engines": {
+        "node": ">=  0.8.0"
+    },
+    "license": "MIT",
+    "config": {
+        "blanket": {
+            "pattern": [
+                "lib"
+            ]
+        },
+        "travis-cov": {
+            "threshold": 70
+        }
     }
-  }
 }

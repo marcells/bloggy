@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.org/marcells/bloggy.png?branch=master)](https://travis-ci.org/marcells/bloggy)
-[![Dependency Status](https://david-dm.org/marcells/bloggy.png)](https://david-dm.org/marcells/bloggy)
-[![devDependency Status](https://david-dm.org/marcells/bloggy/dev-status.png)](https://david-dm.org/marcells/bloggy#info=devDependencies)
+[![Coverage Status](https://coveralls.io/repos/marcells/bloggy/badge.png?branch=master)](https://coveralls.io/r/marcells/bloggy?branch=master)
+[![Dependency Status](https://david-dm.org/marcells/bloggy.png?theme=shields.io)](https://david-dm.org/marcells/bloggy)
+[![devDependency Status](https://david-dm.org/marcells/bloggy/dev-status.png?theme=shields.io)](https://david-dm.org/marcells/bloggy#info=devDependencies)
 
 Bloggy
 ======

@@ -68,6 +68,14 @@ module.exports = function(grunt) {
                 src: ['coverage/test/**/*.js']
             }
         },
+        coveralls: {
+            options: {
+                force: true
+            },
+            all: {
+                src: 'lcov.info'
+            }
+        },
         watch : {
             files: [ 
                 'lib/**/*.js',
@@ -83,8 +91,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-blanket');
+    grunt.loadNpmTasks('grunt-coveralls');
 
     grunt.registerTask('build', ['clean', 'blanket', 'copy']);
     grunt.registerTask('test', ['build', 'mochaTest']);
 	grunt.registerTask('default', ['jslint', 'test']);
+    grunt.registerTask('ci', ['default', 'coveralls']);
 };

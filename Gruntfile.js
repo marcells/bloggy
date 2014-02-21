@@ -39,11 +39,17 @@ module.exports = function(grunt) {
             library: {
                 options: {
                     reporter: 'spec',
-                    ui: 'bdd',
                     require: [ 'should' ]
                 },
                 src: ['coverage/test/**/*.js']
-            },        
+            },
+            watch: {
+                options: {
+                    reporter: 'dot',
+                    require: [ 'should' ]
+                },
+                src: ['coverage/test/**/*.js']
+            },
             coverage: {
                 options: {
                     reporter: 'html-cov',
@@ -81,7 +87,7 @@ module.exports = function(grunt) {
                 'lib/**/*.js',
                 'test/**/*.js'
             ],
-            tasks: [ 'default' ]
+            tasks: [ 'code' ]
         }
 	});
 
@@ -94,7 +100,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-coveralls');
 
     grunt.registerTask('build', ['clean', 'blanket', 'copy']);
-    grunt.registerTask('test', ['build', 'mochaTest']);
+    grunt.registerTask('test', ['build', 'mochaTest:library', 'mochaTest:coverage', 'mochaTest:travis-cov', 'mochaTest:mocha-lcov-reporter']);
 	grunt.registerTask('default', ['jslint', 'test']);
+    grunt.registerTask('code', ['jslint', 'mochaTest:watch']);
     grunt.registerTask('ci', ['default', 'coveralls']);
 };

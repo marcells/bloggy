@@ -76,6 +76,16 @@ describe('bloggy', function () {
         });
     });
 
+    describe('entries.byTagSlug()', function () {
+        it('should return all loaded entries with a given tag slug', function () {
+            var result = bloggy.entries.byTagSlug('Tag-1');
+
+            result.length.should.eql(2);
+            result[0].id.should.eql('2000-1-1-12-00');
+            result[1].id.should.eql('2000-1-1-12-15');
+        });
+    });
+
     describe('tags.all()', function () {
         it('should return all tags with the number of usages ordered by this number', function () {
             var result = bloggy.tags.all();

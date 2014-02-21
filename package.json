@@ -1,11 +1,11 @@
 {
     "name": "bloggy",
-    "description": "Small  and  lightweight  markdown  blog  engine.",
-    "version": "0.0.4",
-    "author": "Marcell  Spies  <marcells@gmx.de>",
+    "description": "Small and lightweight markdown blog engine.",
+    "version": "0.0.5",
+    "author": "Marcell Spies <marcells@gmx.de>",
     "contributors": [
         {
-            "name": "Marcell  Spies",
+            "name": "Marcell Spies",
             "email": "marcells@gmx.de"
         }
     ],
@@ -45,7 +45,7 @@
         "ci": "grunt ci"
     },
     "engines": {
-        "node": ">=  0.8.0"
+        "node": ">= 0.8.0"
     },
     "license": "MIT",
     "config": {

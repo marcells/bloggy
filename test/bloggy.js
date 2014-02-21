@@ -14,6 +14,7 @@ describe('bloggy', function () {
                     metaPath: '/content/2000-1-1-12-00/meta.json',
                     date: new Date(2000, 0, 1, 12, 0),
                     longTitle: 'Some test 1',
+                    shortTitle: 'test1',
                     slug: 'Some-test-1',
                     tags: [
                         { name: 'Tag 1', slug: 'Tag-1' },
@@ -26,6 +27,7 @@ describe('bloggy', function () {
                     metaPath: '/content/2001-1-1-12-15/meta.json',
                     date: new Date(2000, 0, 1, 12, 15),
                     longTitle: 'Some test 2',
+                    shortTitle: 'test2',
                     slug: 'Some-test-2',
                     tags: [
                         { name: 'Tag 1', slug: 'Tag-1' }
@@ -83,6 +85,34 @@ describe('bloggy', function () {
             result.length.should.eql(2);
             result[0].id.should.eql('2000-1-1-12-00');
             result[1].id.should.eql('2000-1-1-12-15');
+        });
+    });
+
+    describe('entry.bySlug()', function () {
+        it('should return a loaded entry by its tag slug', function () {
+            var result = bloggy.entry.bySlug('Some-test-1');
+
+            result.id.should.eql('2000-1-1-12-00');
+        });
+
+        it('should return nothing for an unknown slug', function () {
+            var result = bloggy.entry.bySlug('UnknownSlug');
+
+            should.not.exist(result);
+        });
+    });
+
+    describe('entry.byShortTitle()', function () {
+        it('should return a loaded entry by its short title', function () {
+            var result = bloggy.entry.byShortTitle('test1');
+
+            result.id.should.eql('2000-1-1-12-00');
+        });
+
+        it('should return nothing for an unknown slug', function () {
+            var result = bloggy.entry.byShortTitle('UnknownShortTitle');
+
+            should.not.exist(result);
         });
     });
 

@@ -15,7 +15,10 @@ describe('bloggy', function () {
                     date: new Date(2000, 0, 1, 12, 0),
                     longTitle: 'Some test 1',
                     slug: 'Some-test-1',
-                    tags: []
+                    tags: [
+                        { name: 'Tag 1', slug: 'Tag-1' },
+                        { name: 'Tag 2', slug: 'Tag-2' }
+                    ]
                 }, {
                     id: '2000-1-1-12-15',
                     entryPath: '/content',
@@ -24,7 +27,9 @@ describe('bloggy', function () {
                     date: new Date(2000, 0, 1, 12, 15),
                     longTitle: 'Some test 2',
                     slug: 'Some-test-2',
-                    tags: []
+                    tags: [
+                        { name: 'Tag 1', slug: 'Tag-1' }
+                    ]
                 }]);
             }
         },
@@ -68,6 +73,30 @@ describe('bloggy', function () {
             result.length.should.eql(2);
             result[0].id.should.eql('2000-1-1-12-15');
             result[1].id.should.eql('2000-1-1-12-00');
+        });
+    });
+
+    describe('tags.all()', function () {
+        it('should return all tags with the number of usages ordered by this number', function () {
+            var result = bloggy.tags.all();
+
+            result.should.eql([
+                {
+                    tag: { name: 'Tag 1', slug: 'Tag-1' },
+                    count: 2
+                },
+                {
+                    tag: { name: 'Tag 2', slug: 'Tag-2' },
+                    count: 1
+                }]);
+        });
+    });
+
+    describe('tags.asNames()', function () {
+        it('should return all tag names as an array', function () {
+            var result = bloggy.tags.asNames();
+
+            result.should.eql(['Tag 1', 'Tag 2']);
         });
     });
 });

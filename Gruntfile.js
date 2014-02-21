@@ -48,7 +48,7 @@ module.exports = function(grunt) {
                     reporter: 'dot',
                     require: [ 'should' ]
                 },
-                src: ['coverage/test/**/*.js']
+                src: ['test/**/*.js']
             },
             coverage: {
                 options: {

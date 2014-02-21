@@ -35,8 +35,16 @@ describe('bloggy', function () {
                 }]);
             }
         },
+        fsStub = {
+            readFile: function (path, callback) {
+                callback(null, "file content");
+            }
+        },
         bloggyEngine = proxyquire('../lib/bloggy', {
-            './metadata': metadataStub
+            './metadata': metadataStub,
+            './BlogEntry': proxyquire('../lib/BlogEntry', {
+                fs: fsStub
+            })
         }),
         bloggy;
 
@@ -116,6 +124,14 @@ describe('bloggy', function () {
         });
     });
 
+    describe('entry.latest()', function () {
+        it('should return the latest blog entry', function () {
+            var result = bloggy.entry.latest();
+
+            result.id.should.eql('2000-1-1-12-15');
+        });
+    });
+
     describe('tags.all()', function () {
         it('should return all tags with the number of usages ordered by this number', function () {
             var result = bloggy.tags.all();
@@ -137,6 +153,20 @@ describe('bloggy', function () {
             var result = bloggy.tags.asNames();
 
             result.should.eql(['Tag 1', 'Tag 2']);
+        });
+    });
+
+    describe('getRssXml()', function () {
+        it('generates a rss feed based on the available entries and options', function (done) {
+            bloggy.configuration.generateFeedXml = function (content, options) {
+                return '<feed>' + options.name + '</feed> with ' + content.entries.length + ' entries';
+            };
+            bloggy.setup({ name: 'My Feed name'});
+
+            bloggy.getRssXml(function (rssXml) {
+                rssXml.should.equal('<feed>My Feed name</feed> with 2 entries');
+                done();
+            });
         });
     });
 });

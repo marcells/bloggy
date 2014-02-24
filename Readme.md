@@ -44,8 +44,8 @@ Metadata (meta.json)
 - The shortTitle can be used for a url shortener like functionality.
 - The tags are case sensitive.
 
-Code
-----
+Setup
+-----
 
 ```Javascript
 var path = require('path'),
@@ -82,6 +82,110 @@ engine.load(function () {
 
 ```
 
+Blog entry
+----------
+
+The structure of a blog entry:
+
+```Javascript
+{
+    id: '2014-10-04-20-30',
+    entryPath: '/var/www/myblog/content/2014-10-04-20-30',
+    contentPath: '/var/www/myblog/content/2014-10-04-20-30/content.md',
+    metaPath: '/var/www/myblog/content/2014-10-04-20-30/meta.json',
+    shortTitle: 'travisdeploy',
+    longTitle: 'How to deploy to Travis-CI',
+    url: 'http://mspi.es/blog/How-to-deploy-to-Travis-CI',
+    date: new Date(2014, 09, 04, 20, 30),
+    slug: 'How-to-deploy-to-Travis-CI',
+    tags: [ 
+        { name: 'tech', slug: 'tech'}, 
+        { name: 'Continiuous Integration', slug: 'Continuous-Integration'}]
+    content: '<h2>...</h2>' /* content is only available, when you have loaded it */
+}
+```
+
+Every entry contains a `load()` method with callback, which is called after its content has been loaded. This content is cached as long as you hold a reference to this blog entry object.
+
+```Javascript
+entry.load(function () {
+    var content = entry.content;
+});
+```
+
+Engine functions
+----------------
+
+The engine contains the following functions.
+
+
+**Get all blog entries (ordered by name)**
+
+```Javascript
+var entries = engine.entries.all.orderedByName();
+```
+
+**Get all blog entries (ordered by date [descending])**
+
+```Javascript
+var entries = engine.entries.all.orderedByDate();
+```
+
+**Get entries containing a specific tag slug**
+
+```Javascript
+var entries = engine.entries.byTagSlug('Continuous-Integration');
+```
+
+**Get one entry by its slug**
+
+```Javascript
+var entry = engine.entry.bySlug('How-to-deploy-to-Travis-CI');
+```
+
+**Get one entry by its short title**
+
+```Javascript
+var entry = engine.entry.byShortTitle('travisdeploy');
+```
+
+**Get the latest/newest entry**
+
+```Javascript
+var entry = engine.entry.latest();
+```
+
+**Get all tags (ordered by the number of usages)**
+
+```Javascript
+var tags = engine.tags.all();
+
+[
+    { count: 5, tag: { name: 'tech', slug: 'tech'} },
+    { count: 4, tag: { name: 'nodejs', slug: 'nodejs'} },
+    { count: 1, tag: { name: 'Continuous Integration', slug: 'Continuous-Integration'} },
+]
+```
+
+**Get all tags names**
+
+```Javascript
+var tagNames = engine.tags.asNames();
+
+['tech', 'nodejs', 'Continuous Integration']
+```
+
+**Load the content of multiple entries**
+
+After executing, you have access to the content property of each entry.
+
+```Javascript
+engine.entries.load(entries, function() {
+    entries.forEach(function (entry) {
+        var content = entry.content;
+    });
+});
+```
 
 License
 -------

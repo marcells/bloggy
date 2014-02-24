@@ -165,7 +165,7 @@ describe('bloggy', function () {
                 return '<feed>' + options.name + '</feed> with ' + content.entries.length + ' entries';
             };
 
-            bloggy.setup({ 
+            bloggy.setup({
                 name: 'My Feed name',
                 urls: {
                     entry: 'http://test.com/{slug}'

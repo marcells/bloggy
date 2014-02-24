@@ -11,7 +11,12 @@ describe('BlogEntry', function () {
         },
         BlogEntry = proxyquire('../lib/BlogEntry', {
             'fs': fsStub
-        });
+        }),
+        options = {
+            urls: {
+                entry: 'http://test.com/{slug}'
+            }
+        };
 
     describe('construction', function () {
         var metadata = {
@@ -27,7 +32,7 @@ describe('BlogEntry', function () {
         };
 
         it('should wrap the metadata properties', function () {
-            var entry = new BlogEntry(metadata);
+            var entry = new BlogEntry(metadata, { }, options);
 
             entry.id.should.equal(metadata.id);
             entry.entryPath.should.equal(metadata.entryPath);
@@ -35,13 +40,14 @@ describe('BlogEntry', function () {
             entry.metaPath.should.equal(metadata.metaPath);
             entry.shortTitle.should.equal(metadata.shortTitle);
             entry.longTitle.should.equal(metadata.longTitle);
+            entry.url.should.equal('http://test.com/abcdefghi');
             entry.date.should.equal(metadata.date);
             entry.slug.should.equal(metadata.slug);
             entry.tags.should.equal(metadata.tags);
         });
 
         it('should create the correct tag names', function () {
-            var entry = new BlogEntry(metadata);
+            var entry = new BlogEntry(metadata, { }, options);
 
             entry.tagNames.should.eql([ "tag1", "tag2", "tag3" ]);
         });
@@ -55,7 +61,6 @@ describe('BlogEntry', function () {
                         callback('some markdown content');
                     }
                 },
-                options = {},
                 entry = new BlogEntry(metadata, configuration, options);
 
             entry.load(function () {
@@ -75,7 +80,6 @@ describe('BlogEntry', function () {
                         callback('some markdown content');
                     }
                 },
-                options = {},
                 entry = new BlogEntry(metadata, configuration, options);
 
             entry.load(function () {

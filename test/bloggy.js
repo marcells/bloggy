@@ -52,7 +52,10 @@ describe('bloggy', function () {
         bloggy = bloggyEngine();
 
         bloggy.setup({
-            baseDirectory: '/some/path'
+            baseDirectory: '/some/path',
+            urls: {
+                entry: 'http://test.com/{slug}'
+            }
         });
 
         bloggy.load(function () {
@@ -161,7 +164,13 @@ describe('bloggy', function () {
             bloggy.configuration.generateFeedXml = function (content, options) {
                 return '<feed>' + options.name + '</feed> with ' + content.entries.length + ' entries';
             };
-            bloggy.setup({ name: 'My Feed name'});
+
+            bloggy.setup({ 
+                name: 'My Feed name',
+                urls: {
+                    entry: 'http://test.com/{slug}'
+                }
+            });
 
             bloggy.getRssXml(function (rssXml) {
                 rssXml.should.equal('<feed>My Feed name</feed> with 2 entries');

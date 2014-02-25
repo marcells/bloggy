@@ -76,14 +76,16 @@ describe('BlogEntry', function () {
 
     describe('load()', function () {
         it('should cache the loaded content and the parsing operation should only be called once', function (done) {
+            var numberOfParsingCalls = 0,
+                metadata = {},
+                entry;
+
             engine.loadContent = function (content, callback) {
                 numberOfParsingCalls += 1;
                 callback('some markdown content');
             };
 
-            var numberOfParsingCalls = 0,
-                metadata = {},
-                entry = new BlogEntry(metadata, engine);
+            entry = new BlogEntry(metadata, engine);
 
             entry.load(function () {
                 entry.load(function () {

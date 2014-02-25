@@ -7,10 +7,10 @@ module.exports = function(grunt) {
                     'test/**/*.js'
                 ],
                 directives: {
-                    node: true,
                     unparam: true,
                     nomen: true,
-                    stupid: true
+                    stupid: true,
+                    node: true
                 },
                 options: {
                     errorsOnly: true,

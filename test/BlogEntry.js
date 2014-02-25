@@ -16,6 +16,11 @@ describe('BlogEntry', function () {
             urls: {
                 entry: 'http://test.com/{slug}'
             }
+        },
+        engine = {
+            getOptions : function () {
+                return options;
+            }
         };
 
     describe('construction', function () {
@@ -32,7 +37,7 @@ describe('BlogEntry', function () {
         };
 
         it('should wrap the metadata properties', function () {
-            var entry = new BlogEntry(metadata, { }, options);
+            var entry = new BlogEntry(metadata, engine);
 
             entry.id.should.equal(metadata.id);
             entry.entryPath.should.equal(metadata.entryPath);
@@ -47,7 +52,7 @@ describe('BlogEntry', function () {
         });
 
         it('should create the correct tag names', function () {
-            var entry = new BlogEntry(metadata, { }, options);
+            var entry = new BlogEntry(metadata, engine);
 
             entry.tagNames.should.eql([ "tag1", "tag2", "tag3" ]);
         });
@@ -55,13 +60,12 @@ describe('BlogEntry', function () {
 
     describe('load()', function () {
         it('should be able to load the file content', function (done) {
+            engine.loadContent = function (content, callback) {
+                callback('some markdown content');
+            };
+
             var metadata = {},
-                configuration = {
-                    parseMarkdownContent: function (content, options, callback) {
-                        callback('some markdown content');
-                    }
-                },
-                entry = new BlogEntry(metadata, configuration, options);
+                entry = new BlogEntry(metadata, engine);
 
             entry.load(function () {
                 entry.content.should.equal('some markdown content');
@@ -72,15 +76,14 @@ describe('BlogEntry', function () {
 
     describe('load()', function () {
         it('should cache the loaded content and the parsing operation should only be called once', function (done) {
+            engine.loadContent = function (content, callback) {
+                numberOfParsingCalls += 1;
+                callback('some markdown content');
+            };
+
             var numberOfParsingCalls = 0,
                 metadata = {},
-                configuration = {
-                    parseMarkdownContent: function (content, options, callback) {
-                        numberOfParsingCalls += 1;
-                        callback('some markdown content');
-                    }
-                },
-                entry = new BlogEntry(metadata, configuration, options);
+                entry = new BlogEntry(metadata, engine);
 
             entry.load(function () {
                 entry.load(function () {

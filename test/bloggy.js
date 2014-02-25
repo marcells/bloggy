@@ -161,7 +161,7 @@ describe('bloggy', function () {
 
     describe('getRssXml()', function () {
         it('generates a rss feed based on the available entries and options', function (done) {
-            bloggy.configuration.generateFeedXml = function (content, options) {
+            bloggy.getConfiguration().generateFeedXml = function (content, options) {
                 return '<feed>' + options.name + '</feed> with ' + content.entries.length + ' entries';
             };
 

@@ -158,24 +158,4 @@ describe('bloggy', function () {
             result.should.eql(['Tag 1', 'Tag 2']);
         });
     });
-
-    describe('getRssXml()', function () {
-        it('generates a rss feed based on the available entries and options', function (done) {
-            bloggy.getConfiguration().generateFeedXml = function (content, options) {
-                return '<feed>' + options.name + '</feed> with ' + content.entries.length + ' entries';
-            };
-
-            bloggy.setup({
-                name: 'My Feed name',
-                urls: {
-                    entry: 'http://test.com/{slug}'
-                }
-            });
-
-            bloggy.getRssXml(function (rssXml) {
-                rssXml.should.equal('<feed>My Feed name</feed> with 2 entries');
-                done();
-            });
-        });
-    });
 });

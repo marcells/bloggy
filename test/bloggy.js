@@ -67,6 +67,52 @@ describe('bloggy', function () {
         });
     });
 
+    describe('extendWith()', function () {
+        it('should exist', function () {
+            should.exist(bloggy.extendWith);
+        });
+
+        it('should register a plugin and initialize it with itself', function (done) {
+            var plugin = {
+                init: function (engine) {
+                    bloggy.should.equal(bloggy);
+                    done();
+                }
+            };
+
+            bloggy.extendWith(plugin);
+        });
+    });
+
+    describe('loadContent()', function () {
+        it('should throw an error when it is not overidden by a plugin', function () {
+            bloggy.loadContent.should.throw('Load a parser like bloggy-marked first!');
+        });
+    });
+
+    describe('loadEntries()', function () {
+        it('should load each given entry', function (done) {
+            var Entry = function () {
+                    var self = this;
+
+                    this.contentWasLoaded = false;
+                    this.load = function (callback) {
+                        self.contentWasLoaded = true;
+                        callback(self, '');
+                    };
+                },
+                entries = [ new Entry(), new Entry(), new Entry()];
+
+            bloggy.loadEntries(entries, function () {
+                entries[0].contentWasLoaded.should.equal(true);
+                entries[1].contentWasLoaded.should.equal(true);
+                entries[2].contentWasLoaded.should.equal(true);
+
+                done();
+            });
+        });
+    });
+
     describe('getAllEntries()', function () {
         it('should return all loaded entries', function () {
             var result = bloggy.getAllEntries();

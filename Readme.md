@@ -4,17 +4,15 @@
 [![devDependency Status](https://david-dm.org/marcells/bloggy/dev-status.png?theme=shields.io)](https://david-dm.org/marcells/bloggy#info=devDependencies)
 [![npm module](https://badge.fury.io/js/bloggy.png)](http://badge.fury.io/js/bloggy)
 
-Bloggy
-======
+# bloggy
 
-Small and lightweight markdown blog engine for node.js.
+> Small and lightweight blog engine for node.js.
 
 The code is checked with jslint and tested with mocha. You can use the grunt task to generate the code coverage. Just enter `grunt` at the command prompt.
 
 **Currently the documentation is incomplete!**
 
-Folder structure
-----------------
+## Folder structure
 
 The blog content has to use the following folder structure.
 
@@ -29,8 +27,7 @@ The blog content has to use the following folder structure.
 
 The folder names below the main "content" folder are used as identifier and publishing date of the article. Use the format "year-month-day-hour-minute".
 
-Metadata (meta.json)
---------------------
+## Metadata (meta.json)
 
 ```JSON
 {
@@ -44,37 +41,23 @@ Metadata (meta.json)
 - The shortTitle can be used for a url shortener like functionality.
 - The tags are case sensitive.
 
-Setup
------
+## Quickstart
 
 ```Javascript
 var path = require('path'),
     bloggy = require('bloggy'),
     engine = bloggy();
 
-...
+// You may extend bloggy with some additional functionality
+engine.extendWith(require('bloggy-some-plugin'));
 
+// Setup the path to the blog content and the unique url to each entry
 engine.setup({
     baseDirectory: path.join(__dirname, 'content'),
-    urls: {
-        base: 'http://mspi.es',
-        feed: 'http://mspi.es/feed',
-        favicon: 'http://mspi.es/favicon.ico',
-        entry: 'http://mspi.es/blog/{slug}',
-        images: 'http://mspi.es/images/blog/{imageUrl}'
-    },
-    feed: {
-        author: 'Marcell Spies',
-        title: 'Marcell Spies - Developers Diary',
-        description: 'some description',
-        copyright: '© Marcell Spies',
-        language: 'de',
-        ttl: 30
-    }
+    entryUrl: 'http://mspi.es/blog/{slug}'
 });
 
-...
-
+// Load all blog metadata in the content folder defined in the baseDirectory option
 engine.load(function () {
     // The engine is ready now
     // Run your web framework or do other stuff with it
@@ -82,8 +65,7 @@ engine.load(function () {
 
 ```
 
-Blog entry
-----------
+## Blog entry
 
 The structure of a blog entry:
 
@@ -113,67 +95,9 @@ entry.load(function () {
 });
 ```
 
-Engine functions
-----------------
+## Engine functions
 
 The engine contains the following functions.
-
-
-**Get all blog entries (ordered by name)**
-
-```Javascript
-var entries = engine.entries.all.orderedByName();
-```
-
-**Get all blog entries (ordered by date [descending])**
-
-```Javascript
-var entries = engine.entries.all.orderedByDate();
-```
-
-**Get entries containing a specific tag slug**
-
-```Javascript
-var entries = engine.entries.byTagSlug('Continuous-Integration');
-```
-
-**Get one entry by its slug**
-
-```Javascript
-var entry = engine.entry.bySlug('How-to-deploy-to-Travis-CI');
-```
-
-**Get one entry by its short title**
-
-```Javascript
-var entry = engine.entry.byShortTitle('travisdeploy');
-```
-
-**Get the latest/newest entry**
-
-```Javascript
-var entry = engine.entry.latest();
-```
-
-**Get all tags (ordered by the number of usages)**
-
-```Javascript
-var tags = engine.tags.all();
-
-[
-    { count: 5, tag: { name: 'tech', slug: 'tech'} },
-    { count: 4, tag: { name: 'nodejs', slug: 'nodejs'} },
-    { count: 1, tag: { name: 'Continuous Integration', slug: 'Continuous-Integration'} },
-]
-```
-
-**Get all tags names**
-
-```Javascript
-var tagNames = engine.tags.asNames();
-
-['tech', 'nodejs', 'Continuous Integration']
-```
 
 **Load the content of multiple entries**
 
@@ -185,6 +109,16 @@ engine.entries.load(entries, function() {
         var content = entry.content;
     });
 });
+```
+
+**Extend the engine with additional functionality**
+
+Add plugins to the bloggy engine. The plugins could be configured. Please check the documentation in the several repos.
+
+```Javascript
+engine.extendWith(require('bloggy-query'));
+engine.extendWith(require('bloggy-marked'));
+engine.extendWith(require('bloggy-rss'));
 ```
 
 License

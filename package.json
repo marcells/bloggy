@@ -10,12 +10,9 @@
         }
     ],
     "dependencies": {
-        "marked": "~0.3.0",
         "glob": "~3.2.8",
         "linq": "~3.0.4-beta",
-        "slug": "~0.4.0",
-        "highlight.js": "~8.0.0",
-        "rss": "~0.3.2"
+        "slug": "~0.4.0"
     },
     "devDependencies": {
         "should": "~3.1.2",

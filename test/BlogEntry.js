@@ -13,9 +13,7 @@ describe('BlogEntry', function () {
             'fs': fsStub
         }),
         options = {
-            urls: {
-                entry: 'http://test.com/{slug}'
-            }
+            entryUrl: 'http://test.com/{slug}'
         },
         engine = {
             getOptions : function () {

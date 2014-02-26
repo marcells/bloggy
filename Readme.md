@@ -48,7 +48,7 @@ var path = require('path'),
     bloggy = require('bloggy'),
     engine = bloggy();
 
-// You may extend bloggy with some additional functionality
+// You may extend bloggy with some plugins (see below this code block)
 engine.extendWith(require('bloggy-some-plugin'));
 
 // Setup the path to the blog content and the unique url to each entry
@@ -64,6 +64,16 @@ engine.load(function () {
 });
 
 ```
+
+### Plugins
+
+Bloggy gets its power from plugins. Feel free to create some by yourself. If you need a template, just take a look at the currently existing ones.
+
+| Plugin (NPM)  | Repository                               |
+|---------------| -----------------------------------------|
+| bloggy-query  | http://github.com/marcells/bloggy-query  |
+| bloggy-marked | http://github.com/marcells/bloggy-marked |
+| bloggy-rss    | http://github.com/marcells/bloggy-rss    |
 
 ## Blog entry
 

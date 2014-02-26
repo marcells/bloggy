@@ -1,1 +1,1 @@
-module.exports = exports = require('./lib/bloggy');
+module.exports = require('./lib/bloggy');

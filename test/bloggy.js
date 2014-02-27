@@ -111,6 +111,12 @@ describe('bloggy', function () {
                 done();
             });
         });
+
+        it('should call the callback even if no entries are given', function (done) {
+            bloggy.loadEntries([], function () {
+                done();
+            });
+        });
     });
 
     describe('getAllEntries()', function () {

@@ -1,7 +1,7 @@
 {
     "name": "bloggy",
-    "description": "Small and lightweight markdown blog engine.",
-    "version": "0.0.8",
+    "description": "Small and lightweight extensible blog engine.",
+    "version": "0.0.9",
     "author": "Marcell Spies <marcells@gmx.de>",
     "contributors": [
         {
@@ -34,7 +34,8 @@
         "markdown",
         "engine",
         "small",
-        "lightweight"
+        "lightweight",
+        "extensible"
     ],
     "repository": "git://github.com/marcells/bloggy",
     "scripts": {

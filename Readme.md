@@ -27,7 +27,7 @@ The blog content has to use the following folder structure.
 
 The folder names below the main "content" folder are used as identifier and publishing date of the article. Use the format "year-month-day-hour-minute".
 
-## Metadata (meta.json)
+### Metadata (meta.json)
 
 ```JSON
 {
@@ -41,14 +41,24 @@ The folder names below the main "content" folder are used as identifier and publ
 - The shortTitle can be used for a url shortener like functionality.
 - The tags are case sensitive.
 
+### Blog entry content (content.md)
+
+This is the markdown file with the blog entry content, which will be rendered to HTML by using a bloggy renderer plugin (e.g. http://github.com/marcells/bloggy-marked).
+
 ## Quickstart
 
+### 1. Install it
+```Bash
+$ npm install bloggy
+```
+
+### 2. Configure it
 ```Javascript
 var path = require('path'),
     bloggy = require('bloggy'),
     engine = bloggy();
 
-// You may extend bloggy with some plugins (see below this code block)
+// You may extend bloggy with some plugins (see 'Plugins' below)
 engine.extendWith(require('bloggy-some-plugin'));
 
 // Setup the path to the blog content and the unique url to each entry
@@ -57,15 +67,18 @@ engine.setup({
     entryUrl: 'http://mspi.es/blog/{slug}'
 });
 
+```
+
+### 3. Run it
+```Javascript
 // Load all blog metadata in the content folder defined in the baseDirectory option
 engine.load(function () {
     // The engine is ready now
     // Run your web framework or do other stuff with it
 });
-
 ```
 
-### Plugins
+## Plugins
 
 Bloggy gets its power from plugins. Feel free to create some by yourself. If you need a template, just take a look at the currently existing ones.
 

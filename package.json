@@ -1,7 +1,7 @@
 {
     "name": "bloggy",
     "description": "Small and lightweight extensible blog engine.",
-    "version": "0.0.11",
+    "version": "0.0.12",
     "author": "Marcell Spies <marcells@gmx.de>",
     "contributors": [
         {

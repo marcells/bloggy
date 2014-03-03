@@ -8,9 +8,18 @@
 
 > Small and lightweight blog engine for node.js.
 
-The code is checked with jslint and tested with mocha. You can use the grunt task to generate the code coverage. Just enter `grunt` at the command prompt.
+The main tasks for Bloggy are:
+- searche all ```meta.json``` files in a content directory (see Folder Structure)
+- build an index of this information
+- allow access to this index by the blog engine
 
-**Currently the documentation is incomplete!**
+Bloggy contains a simple plugin system to extend the engine with more functionality (e.g.: RSS generation, query functions, ...). Bloggy itself is not 
+responsible to render to output, but you can easily integrate it in your express infrastructure.
+
+## Dear developers
+Feel free to write plugins for it or to send pull requests. The code is checked with jslint and tested with mocha. You can use the grunt task to 
+generate the code coverage. Just enter `grunt` at the command prompt. During coding you can use `grunt watch`, which executes the tests every time 
+you save a file.
 
 ## Folder structure
 

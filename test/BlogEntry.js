@@ -29,12 +29,13 @@ describe('BlogEntry', function () {
             metaPath: "metaPath",
             shortTitle: "shortTitle",
             longTitle: "longTitle",
+            publish: true,
             date: new Date(2014, 0, 1, 10, 15),
             slug: "abcdefghi",
             tags: [ { name : "tag1" }, { name: "tag2" }, { name: "tag3" }]
         };
 
-        it('should wrap the metadata properties', function () {
+        it('should contain all metadata properties', function () {
             var entry = new BlogEntry(metadata, engine);
 
             entry.id.should.equal(metadata.id);
@@ -43,13 +44,19 @@ describe('BlogEntry', function () {
             entry.metaPath.should.equal(metadata.metaPath);
             entry.shortTitle.should.equal(metadata.shortTitle);
             entry.longTitle.should.equal(metadata.longTitle);
-            entry.url.should.equal('http://test.com/abcdefghi');
+            entry.publish.should.equal(true);
             entry.date.should.equal(metadata.date);
             entry.slug.should.equal(metadata.slug);
             entry.tags.should.equal(metadata.tags);
         });
 
-        it('should create the correct tag names', function () {
+        it('should create the url of the BlogEntry', function () {
+            var entry = new BlogEntry(metadata, engine);
+
+            entry.url.should.equal('http://test.com/abcdefghi');
+        });
+
+        it('should create a list of the tag names', function () {
             var entry = new BlogEntry(metadata, engine);
 
             entry.tagNames.should.eql([ "tag1", "tag2", "tag3" ]);

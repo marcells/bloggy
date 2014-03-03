@@ -49,6 +49,8 @@ The folder names below the main "content" folder are used as identifier and publ
 - The longTitle and shortTitle has to be unique.
 - The shortTitle can be used for a url shortener like functionality.
 - The tags are case sensitive.
+- Any other property you add here can be accessed at the BlogEntry (see below)
+    - As long as you dont't use any of the reserved property names (`id`, `entryPath`, `contentPath`, `metaPath`, `date`, `slug`, `tagNames`, `url`, `content`)
 
 ### Blog entry content (content.md)
 
@@ -118,6 +120,9 @@ The structure of a blog entry:
     content: '<h2>...</h2>' /* content is only available, when you have loaded it */
 }
 ```
+
+All additional properties, defined in the metadata, will occur here, too.
+
 
 Every entry contains a `load()` method with callback, which is called after its content has been loaded. This content is cached as long as you hold a reference to this blog entry object.
 

@@ -75,7 +75,9 @@ engine.extendWith(require('bloggy-some-plugin'));
 // Setup the path to the blog content and the unique url to each entry
 engine.setup({
     baseDirectory: path.join(__dirname, 'content'),
-    entryUrl: 'http://mspi.es/blog/{slug}'
+    entryUrl: 'http://mspi.es/blog/{slug}',
+    meta: 'meta.json',
+    content: 'content.md'
 });
 
 ```

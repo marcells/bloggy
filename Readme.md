@@ -76,7 +76,6 @@ engine.extendWith(require('bloggy-some-plugin'));
 engine.setup({
     baseDirectory: path.join(__dirname, 'content'),
     entryUrl: 'http://mspi.es/blog/{slug}',
-    meta: 'meta.json',
     content: 'content.md'
 });
 

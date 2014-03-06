@@ -8,7 +8,7 @@ describe('metadata', function () {
     var metadata = proxyquire('../lib/metadata', {
         glob: function (path, options, callback) {
             callback(null, [
-                '/some/folder/to/the/content/2014-11-9-17-33/metadata.json'
+                '/some/folder/to/the/content/2014-11-9-17-33/meta.json'
             ]);
         },
         fs: {
@@ -45,7 +45,7 @@ describe('metadata', function () {
             });
         });
 
-        it('should parse the contentPath', function (done) {
+        it('should parse the default contenPath', function (done) {
             var path = require('path');
 
             metadata.load({}, function (meta) {
@@ -57,7 +57,7 @@ describe('metadata', function () {
         it('should parse the contentPath with a custom filename', function (done) {
             var path = require('path');
 
-            metadata.load({ content: 'content.html' }, function (meta) {
+            metadata.load({ contentFileName: 'content.html' }, function (meta) {
                 meta[0].contentPath.should.equal(path.resolve('/some/folder/to/the/content/2014-11-9-17-33/content.html'));
                 done();
             });
@@ -67,7 +67,7 @@ describe('metadata', function () {
             var path = require('path');
 
             metadata.load({}, function (meta) {
-                meta[0].metaPath.should.equal(path.resolve('/some/folder/to/the/content/2014-11-9-17-33/metadata.json'));
+                meta[0].metaPath.should.equal(path.resolve('/some/folder/to/the/content/2014-11-9-17-33/meta.json'));
                 done();
             });
         });

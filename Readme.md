@@ -21,6 +21,10 @@ Feel free to write plugins for it or to send pull requests. The code is checked 
 generate the code coverage. Just enter `grunt` at the command prompt. During coding you can use `grunt watch`, which executes the tests every time 
 you save a file.
 
+Resources:
+- [Mocha](http://visionmedia.github.io/mocha) and [should.js](https://github.com/visionmedia/should.js)
+- [Code style guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+
 ## Folder structure
 
 The blog content has to use the following folder structure.
@@ -28,10 +32,10 @@ The blog content has to use the following folder structure.
 - content
     - 2013-11-21-18-30
         - meta.json
-        - content.md
+        - content.md *(Filename can be overridden. See Quickstart below.)*
     - 2013-12-8-9-45
         - meta.json
-        - content.md
+        - content.md *(Filename can be overridden. See Quickstart below.)*
     - ...
 
 The folder names below the main "content" folder are used as identifier and publishing date of the article. Use the format "year-month-day-hour-minute".
@@ -52,9 +56,12 @@ The folder names below the main "content" folder are used as identifier and publ
 - Any other property you add here can be accessed at the BlogEntry (see below)
     - As long as you dont't use any of the reserved property names (`id`, `entryPath`, `contentPath`, `metaPath`, `date`, `slug`, `tagNames`, `url`, `content`)
 
-### Blog entry content (content.md)
+### Blog entry content (e.g. content.md)
 
-This is the markdown file with the blog entry content, which will be rendered to HTML by using a bloggy renderer plugin (e.g. http://github.com/marcells/bloggy-marked).
+This is the file with the blog entry content, which will be rendered to HTML by using a bloggy renderer plugin (e.g. http://github.com/marcells/bloggy-marked for markdown content).
+
+The default filename is `content.md`. But you can change this name in the blog engine settings (see Quickstart below). So you get support for your editor (html, markdown, odt, doc, ...), cause you can
+define the file extension.
 
 ## Quickstart
 
@@ -76,7 +83,7 @@ engine.extendWith(require('bloggy-some-plugin'));
 engine.setup({
     baseDirectory: path.join(__dirname, 'content'),
     entryUrl: 'http://mspi.es/blog/{slug}',
-    content: 'content.md'
+    contentFileName: 'content.md' // The default value is 'content.md' and can be overridden here
 });
 
 ```

@@ -57,7 +57,7 @@ describe('metadata', function () {
         it('should parse the contentPath with a custom filename', function (done) {
             var path = require('path');
 
-            metadata.load({ contentFileName: 'content.html' }, function (meta) {
+            metadata.load({ contentFilename: 'content.html' }, function (meta) {
                 meta[0].contentPath.should.equal(path.resolve('/some/folder/to/the/content/2014-11-9-17-33/content.html'));
                 done();
             });

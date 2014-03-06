@@ -8,7 +8,7 @@
 
 > Small and lightweight blog engine for node.js.
 
-The main tasks for Bloggy are:
+The main tasks of Bloggy are:
 - searche all ```meta.json``` files in a content directory (see Folder Structure)
 - build an index of this information
 - allow access to this index by the blog engine
@@ -83,7 +83,7 @@ engine.extendWith(require('bloggy-some-plugin'));
 engine.setup({
     baseDirectory: path.join(__dirname, 'content'),
     entryUrl: 'http://mspi.es/blog/{slug}',
-    contentFileName: 'content.md' // The default value is 'content.md' and can be overridden here
+    contentFilename: 'content.md' // The default value is 'content.md' and can be overridden here
 });
 
 ```
@@ -99,13 +99,13 @@ engine.load(function () {
 
 ## Plugins
 
-Bloggy gets its power from plugins. Feel free to create some by yourself. If you need a template, just take a look at the currently existing ones.
+Bloggy gets its power from plugins. You want to see your awesome plugin down there in the list? Feel free to create one by yourself and [notify me](http://twitter.com/marcells). If you need a template, just take a look at the currently existing ones.
 
-| Plugin (NPM)  | Repository                               |
-|---------------| -----------------------------------------|
-| bloggy-query  | http://github.com/marcells/bloggy-query  |
-| bloggy-marked | http://github.com/marcells/bloggy-marked |
-| bloggy-rss    | http://github.com/marcells/bloggy-rss    |
+| Plugin (NPM)  | Repository                               | Author
+|---------------| -----------------------------------------|----------------------------------------
+| bloggy-query  | http://github.com/marcells/bloggy-query  | [marcells](http://twitter.com/marcells)
+| bloggy-marked | http://github.com/marcells/bloggy-marked | [marcells](http://twitter.com/marcells)
+| bloggy-rss    | http://github.com/marcells/bloggy-rss    | [marcells](http://twitter.com/marcells)
 
 ## Blog entry
 

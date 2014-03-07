@@ -9,7 +9,7 @@
 > Small and lightweight blog engine for node.js.
 
 The main tasks of Bloggy are:
-- searche all ```meta.json``` files in a content directory (see Folder Structure)
+- search all ```meta.json``` files in a content directory (see Folder Structure)
 - build an index of this information
 - allow access to this index by the blog engine
 

@@ -1,0 +1,9 @@
+extends layout
+
+block content
+    h1= title
+
+    ul
+    each entry in entries
+        li
+            a(href=entry.url) #{entry.longTitle}

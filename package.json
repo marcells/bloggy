@@ -27,7 +27,11 @@
         "grunt-coveralls": "~0.3.0",
         "grunt-cli": "~0.1.13",
         "travis-cov": "~0.2.5",
-        "mocha-lcov-reporter": "0.0.1"
+        "mocha-lcov-reporter": "0.0.1",
+        "express": "3.4.7",
+        "jade": "*",
+        "bloggy-query": "*",
+        "bloggy-marked": "*"
     },
     "keywords": [
         "blog",

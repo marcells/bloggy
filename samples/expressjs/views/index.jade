@@ -6,4 +6,4 @@ block content
     ul
     each entry in entries
         li
-            a(href=entry.url) #{entry.longTitle}
+            a(href=entry.url) #{entry.longTitle} (#{entry.date.toLocaleDateString()} @ #{entry.date.toLocaleTimeString()})

@@ -25,6 +25,8 @@ Resources:
 - [Mocha](http://visionmedia.github.io/mocha) and [should.js](https://github.com/visionmedia/should.js)
 - [Code style guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
 
+Do you need a hint how bloggy could be integrated in your web site? Then take a look at the [code samples](https://github.com/marcells/bloggy/tree/master/samples)!
+
 ## Folder structure
 
 The blog content has to use the following folder structure.

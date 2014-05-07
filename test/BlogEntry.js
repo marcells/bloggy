@@ -65,7 +65,7 @@ describe('BlogEntry', function () {
 
     describe('load()', function () {
         it('should be able to load the file content', function (done) {
-            engine.loadContent = function (content, callback) {
+            engine.loadContent = function (blogEntry, content, callback) {
                 callback('some markdown content');
             };
 
@@ -85,7 +85,7 @@ describe('BlogEntry', function () {
                 metadata = {},
                 entry;
 
-            engine.loadContent = function (content, callback) {
+            engine.loadContent = function (blogEntry, content, callback) {
                 numberOfParsingCalls += 1;
                 callback('some markdown content');
             };

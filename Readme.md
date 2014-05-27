@@ -103,12 +103,13 @@ engine.load(function () {
 
 Bloggy gets its power from plugins. You want to see your awesome plugin down there in the list? Feel free to create one by yourself and [notify me](http://twitter.com/marcells). If you need a template, just take a look at the currently existing ones.
 
-| Plugin (NPM)   | Repository                                | Author
-|----------------| ------------------------------------------|----------------------------------------
-| bloggy-query   | http://github.com/marcells/bloggy-query   | [marcells](http://twitter.com/marcells)
-| bloggy-marked  | http://github.com/marcells/bloggy-marked  | [marcells](http://twitter.com/marcells)
-| bloggy-rss     | http://github.com/marcells/bloggy-rss     | [marcells](http://twitter.com/marcells)
-| bloggy-summary | http://github.com/marcells/bloggy-summary | [marcells](http://twitter.com/marcells)
+| Plugin (NPM)      | Repository                                   | Author
+|-------------------| ---------------------------------------------|----------------------------------------
+| bloggy-query      | http://github.com/marcells/bloggy-query      | [marcells](http://twitter.com/marcells)
+| bloggy-marked     | http://github.com/marcells/bloggy-marked     | [marcells](http://twitter.com/marcells)
+| bloggy-rss        | http://github.com/marcells/bloggy-rss        | [marcells](http://twitter.com/marcells)
+| bloggy-summary    | http://github.com/marcells/bloggy-summary    | [marcells](http://twitter.com/marcells)
+| bloggy-marked-toc | http://github.com/marcells/bloggy-marked-toc | [marcells](http://twitter.com/marcells)
 
 ## Blog entry
 

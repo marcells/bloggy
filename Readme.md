@@ -81,9 +81,10 @@ var path = require('path'),
 // You may extend bloggy with some plugins (see 'Plugins' below)
 engine.extendWith(require('bloggy-some-plugin'));
 
-// Setup the path to the blog content and the unique url to each entry
+// Setup the paths to the blog content and the unique url to each entry.
+// (E.g. you could define an additional path to unpublished blog posts when you are in your preview environment)
 engine.setup({
-    baseDirectory: path.join(__dirname, 'content'),
+    baseDirectories: [ path.join(__dirname, 'content') ],
     entryUrl: 'http://mspi.es/blog/{slug}',
     contentFilename: 'content.md' // The default value is 'content.md' and can be overridden here
 });
@@ -92,7 +93,7 @@ engine.setup({
 
 ### 3. Run it
 ```Javascript
-// Load all blog metadata in the content folder defined in the baseDirectory option
+// Load all blog metadata in the content folders defined in the baseDirectories option
 engine.load(function () {
     // The engine is ready now
     // Run your web framework or do other stuff with it

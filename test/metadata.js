@@ -30,7 +30,7 @@ describe('metadata', function () {
         });
 
         it('should parse the id', function (done) {
-            metadata.load({ baseDirectory: '/data/content' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ] }, function (meta) {
                 meta[0].id.should.equal('2014-11-9-17-33');
                 done();
             });
@@ -39,7 +39,7 @@ describe('metadata', function () {
         it('should parse the entryPath', function (done) {
             var path = require('path');
 
-            metadata.load({ baseDirectory: '/data/content' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ] }, function (meta) {
                 meta[0].entryPath.should.equal(path.resolve('/data/content/2014-11-9-17-33'));
                 done();
             });
@@ -48,7 +48,7 @@ describe('metadata', function () {
         it('should parse the default contentPath', function (done) {
             var path = require('path');
 
-            metadata.load({ baseDirectory: '/data/content' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ] }, function (meta) {
                 meta[0].contentPath.should.equal(path.resolve('/data/content/2014-11-9-17-33/content.md'));
                 done();
             });
@@ -57,7 +57,7 @@ describe('metadata', function () {
         it('should parse the contentPath with a custom filename', function (done) {
             var path = require('path');
 
-            metadata.load({ baseDirectory: '/data/content', contentFilename: 'content.html' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ], contentFilename: 'content.html' }, function (meta) {
                 meta[0].contentPath.should.equal(path.resolve('/data/content/2014-11-9-17-33/content.html'));
                 done();
             });
@@ -66,32 +66,41 @@ describe('metadata', function () {
         it('should parse the metaPath', function (done) {
             var path = require('path');
 
-            metadata.load({ baseDirectory: '/data/content' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ] }, function (meta) {
                 meta[0].metaPath.should.equal(path.resolve('/data/content/2014-11-9-17-33/meta.json'));
                 done();
             });
         });
 
         it('should parse the date', function (done) {
-            metadata.load({ baseDirectory: '/data/content' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ] }, function (meta) {
                 meta[0].date.should.eql(new Date(2014, 10, 9, 17, 33));
                 done();
             });
         });
 
         it('should parse the slug', function (done) {
-            metadata.load({ baseDirectory: '/data/content' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ] }, function (meta) {
                 meta[0].slug.should.equal('Some-title');
                 done();
             });
         });
 
         it('should parse the tags', function (done) {
-            metadata.load({ baseDirectory: '/data/content' }, function (meta) {
+            metadata.load({ baseDirectories: [ '/data/content' ] }, function (meta) {
                 meta[0].tags.should.eql([{
                     name: 'Some tag',
                     slug: 'Some-tag'
                 }]);
+                done();
+            });
+        });
+
+        it('should handle multiple content paths', function (done) {
+            var path = require('path');
+
+            metadata.load({ baseDirectories: [ '/data/content', '/data/content2', '/data/content3' ] }, function (meta) {
+                meta.should.have.length(3);
                 done();
             });
         });

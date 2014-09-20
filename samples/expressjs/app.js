@@ -22,7 +22,7 @@ engine.extendWith(require('bloggy-query'));
 engine.extendWith(require('bloggy-marked'));
 
 engine.setup({
-    baseDirectory: path.join(__dirname, 'content'),
+    baseDirectories: [path.join(__dirname, 'content')],
     entryUrl: 'http://localhost:' + app.get('port') + '/blog/{slug}'
 });
 

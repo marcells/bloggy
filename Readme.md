@@ -1,8 +1,11 @@
 [![Build Status](https://travis-ci.org/marcells/bloggy.png?branch=master)](https://travis-ci.org/marcells/bloggy)
 [![Coverage Status](https://coveralls.io/repos/marcells/bloggy/badge.png?branch=master)](https://coveralls.io/r/marcells/bloggy?branch=master)
+[![Code Climate](https://codeclimate.com/github/marcells/bloggy/badges/gpa.svg)](https://codeclimate.com/github/marcells/bloggy)
 [![Dependency Status](https://david-dm.org/marcells/bloggy.png?theme=shields.io)](https://david-dm.org/marcells/bloggy)
 [![devDependency Status](https://david-dm.org/marcells/bloggy/dev-status.png?theme=shields.io)](https://david-dm.org/marcells/bloggy#info=devDependencies)
 [![npm module](https://badge.fury.io/js/bloggy.png)](http://badge.fury.io/js/bloggy)
+[![Issue Stats](http://www.issuestats.com/github/marcells/bloggy/badge/issue)](http://www.issuestats.com/github/marcells/bloggy)
+[![Pull Request Stats](http://www.issuestats.com/github/marcells/bloggy/badge/pr)](http://www.issuestats.com/github/marcells/bloggy)
 
 # bloggy
 

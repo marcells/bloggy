@@ -97,8 +97,6 @@ describe('metadata', function () {
         });
 
         it('should handle multiple content paths', function (done) {
-            var path = require('path');
-
             metadata.load({ baseDirectories: [ '/data/content', '/data/content2', '/data/content3' ] }, function (meta) {
                 meta.should.have.length(3);
                 done();

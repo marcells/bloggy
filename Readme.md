@@ -115,6 +115,7 @@ Bloggy gets its power from plugins. You want to see your awesome plugin down the
 | bloggy-summary       | http://github.com/marcells/bloggy-summary       | [marcells](http://twitter.com/marcells)
 | bloggy-marked-toc    | http://github.com/marcells/bloggy-marked-toc    | [marcells](http://twitter.com/marcells)
 | bloggy-reading-speed | http://github.com/marcells/bloggy-reading-speed | [marcells](http://twitter.com/marcells)
+| bloggy-moment        | http://github.com/Ilshidur/bloggy-moment        | [ilshidur](http://github.com/Ilshidur)
 
 ## Blog entry
 

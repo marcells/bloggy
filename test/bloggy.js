@@ -17,8 +17,8 @@ describe('bloggy', function () {
                     shortTitle: 'test1',
                     slug: 'Some-test-1',
                     tags: [
-                        { name: 'Tag 1', slug: 'Tag-1' },
-                        { name: 'Tag 2', slug: 'Tag-2' }
+                        {name: 'Tag 1', slug: 'Tag-1'},
+                        {name: 'Tag 2', slug: 'Tag-2'}
                     ]
                 }, {
                     id: '2000-1-1-12-15',
@@ -30,7 +30,7 @@ describe('bloggy', function () {
                     shortTitle: 'test2',
                     slug: 'Some-test-2',
                     tags: [
-                        { name: 'Tag 1', slug: 'Tag-1' }
+                        {name: 'Tag 1', slug: 'Tag-1'}
                     ]
                 }]);
             }
@@ -101,7 +101,7 @@ describe('bloggy', function () {
                         callback(self, '');
                     };
                 },
-                entries = [ new Entry(), new Entry(), new Entry()];
+                entries = [new Entry(), new Entry(), new Entry()];
 
             bloggy.loadEntries(entries, function () {
                 entries[0].contentWasLoaded.should.equal(true);

@@ -16,7 +16,7 @@ describe('BlogEntry', function () {
             entryUrl: 'http://test.com/{slug}'
         },
         engine = {
-            getOptions : function () {
+            getOptions: function () {
                 return options;
             }
         };
@@ -32,7 +32,7 @@ describe('BlogEntry', function () {
             publish: true,
             date: new Date(2014, 0, 1, 10, 15),
             slug: "abcdefghi",
-            tags: [ { name : "tag1" }, { name: "tag2" }, { name: "tag3" }]
+            tags: [{name: "tag1"}, {name: "tag2"}, {name: "tag3"}]
         };
 
         it('should contain all metadata properties', function () {
@@ -59,7 +59,7 @@ describe('BlogEntry', function () {
         it('should create a list of the tag names', function () {
             var entry = new BlogEntry(metadata, engine);
 
-            entry.tagNames.should.eql([ "tag1", "tag2", "tag3" ]);
+            entry.tagNames.should.eql(["tag1", "tag2", "tag3"]);
         });
     });
 

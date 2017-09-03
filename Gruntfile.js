@@ -1,22 +1,13 @@
 module.exports = function(grunt) {
 	grunt.initConfig({
-        jslint: {
-            library: {
-                src: [
-                    'lib/**/*.js',
-                    'test/**/*.js'
-                ],
-                directives: {
-                    unparam: true,
-                    nomen: true,
-                    stupid: true,
-                    node: true
-                },
-                options: {
-                    errorsOnly: true,
-                    failOnError: false
-                }
-            }
+        eslint: {
+            target: [
+              'lib/**/*.js',
+              'test/**/*.js'
+            ],
+						options: {
+							configFile: 'eslint.json'
+						}
         },
         clean: {
             coverage: {
@@ -83,7 +74,7 @@ module.exports = function(grunt) {
             }
         },
         watch : {
-            files: [ 
+            files: [
                 'lib/**/*.js',
                 'test/**/*.js'
             ],
@@ -91,7 +82,7 @@ module.exports = function(grunt) {
         }
 	});
 
-    grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -101,7 +92,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('build', ['clean', 'blanket', 'copy']);
     grunt.registerTask('test', ['build', 'mochaTest:library', 'mochaTest:coverage', 'mochaTest:travis-cov', 'mochaTest:mocha-lcov-reporter']);
-	grunt.registerTask('default', ['jslint', 'test']);
-    grunt.registerTask('code', ['jslint', 'mochaTest:watch']);
+	  grunt.registerTask('default', ['eslint', 'test']);
+    grunt.registerTask('code', ['eslint', 'mochaTest:watch']);
     grunt.registerTask('ci', ['default', 'coveralls']);
 };

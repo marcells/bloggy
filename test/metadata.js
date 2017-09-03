@@ -1,4 +1,5 @@
 /*global describe, it */
+
 'use strict';
 
 var proxyquire = require('proxyquire'),

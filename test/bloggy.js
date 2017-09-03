@@ -84,7 +84,7 @@ describe('bloggy', function () {
 
         it('should register a plugin and initialize it with itself', function (done) {
             var plugin = {
-                init: function (engine) {
+                init: function () {
                     bloggy.should.equal(bloggy);
                     done();
                 }

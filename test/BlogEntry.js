@@ -1,4 +1,5 @@
 /*global describe, it */
+/*eslint-disable max-statements */
 'use strict';
 
 var proxyquire = require('proxyquire');

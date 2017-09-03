@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/marcells/bloggy.png?branch=master)](https://travis-ci.org/marcells/bloggy)
-[![Coverage Status](https://coveralls.io/repos/marcells/bloggy/badge.png?branch=master)](https://coveralls.io/r/marcells/bloggy?branch=master)
 [![Code Climate](https://codeclimate.com/github/marcells/bloggy/badges/gpa.svg)](https://codeclimate.com/github/marcells/bloggy)
 [![Dependency Status](https://david-dm.org/marcells/bloggy.png?theme=shields.io)](https://david-dm.org/marcells/bloggy)
 [![devDependency Status](https://david-dm.org/marcells/bloggy/dev-status.png?theme=shields.io)](https://david-dm.org/marcells/bloggy#info=devDependencies)
@@ -16,12 +15,12 @@ The main tasks of Bloggy are:
 - build an index of this information
 - allow access to this index by the blog engine
 
-Bloggy contains a simple plugin system to extend the engine with more functionality (e.g.: RSS generation, query functions, ...). Bloggy itself is not 
+Bloggy contains a simple plugin system to extend the engine with more functionality (e.g.: RSS generation, query functions, ...). Bloggy itself is not
 responsible to render to output, but you can easily integrate it in your express infrastructure.
 
 ## Dear developers
-Feel free to write plugins for it or to send pull requests. The code is checked with jslint and tested with mocha. You can use the grunt task to 
-generate the code coverage. Just enter `grunt` at the command prompt. During coding you can use `grunt watch`, which executes the tests every time 
+Feel free to write plugins for it or to send pull requests. The code is checked with jslint and tested with mocha. You can use the grunt task to
+generate the code coverage. Just enter `grunt` at the command prompt. During coding you can use `grunt watch`, which executes the tests every time
 you save a file.
 
 Resources:
@@ -132,8 +131,8 @@ The structure of a blog entry:
     url: 'http://mspi.es/blog/How-to-deploy-to-Travis-CI',
     date: new Date(2014, 09, 04, 20, 30),
     slug: 'How-to-deploy-to-Travis-CI',
-    tags: [ 
-        { name: 'tech', slug: 'tech'}, 
+    tags: [
+        { name: 'tech', slug: 'tech'},
         { name: 'Continiuous Integration', slug: 'Continuous-Integration'}]
     content: '<h2>...</h2>' /* content is only available, when you have loaded it */
 }

@@ -1,38 +1,39 @@
 /*global describe, it */
-"use strict";
+/*eslint-disable max-statements */
+'use strict';
 
 var proxyquire = require('proxyquire');
 
 describe('BlogEntry', function () {
     var fsStub = {
             readFile: function (path, callback) {
-                callback(null, "file content");
+                callback(null, 'file content');
             }
         },
-        BlogEntry = proxyquire('../lib/BlogEntry', {
-            'fs': fsStub
-        }),
-        options = {
-            entryUrl: 'http://test.com/{slug}'
-        },
+        BlogEntry = proxyquire('../lib/BlogEntry', {'fs': fsStub}),
+        options = {entryUrl: 'http://test.com/{slug}'},
         engine = {
-            getOptions : function () {
+            getOptions: function () {
                 return options;
             }
         };
 
     describe('construction', function () {
         var metadata = {
-            id: "id",
-            entryPath: "entryPath",
-            contentPath: "contentPath",
-            metaPath: "metaPath",
-            shortTitle: "shortTitle",
-            longTitle: "longTitle",
+            id: 'id',
+            entryPath: 'entryPath',
+            contentPath: 'contentPath',
+            metaPath: 'metaPath',
+            shortTitle: 'shortTitle',
+            longTitle: 'longTitle',
             publish: true,
             date: new Date(2014, 0, 1, 10, 15),
-            slug: "abcdefghi",
-            tags: [ { name : "tag1" }, { name: "tag2" }, { name: "tag3" }]
+            slug: 'abcdefghi',
+            tags: [
+                {name: 'tag1'},
+                {name: 'tag2'},
+                {name: 'tag3'}
+            ]
         };
 
         it('should contain all metadata properties', function () {
@@ -59,7 +60,11 @@ describe('BlogEntry', function () {
         it('should create a list of the tag names', function () {
             var entry = new BlogEntry(metadata, engine);
 
-            entry.tagNames.should.eql([ "tag1", "tag2", "tag3" ]);
+            entry.tagNames.should.eql([
+                'tag1',
+                'tag2',
+                'tag3'
+            ]);
         });
     });
 

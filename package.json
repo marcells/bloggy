@@ -10,23 +10,23 @@
         }
     ],
     "dependencies": {
-        "glob": "7.1.2",
-        "linq": "3.0.8",
-        "slug": "0.9.1"
+        "glob": "8.0.3",
+        "linq": "3.2.4",
+        "slug": "8.0.0"
     },
     "devDependencies": {
-        "bloggy-query": "0.0.1",
-        "bloggy-marked": "0.0.4",
-        "express": "4.15.3",
-        "grunt": "1.0.1",
-        "grunt-cli": "1.2.0",
-        "grunt-contrib-watch": "1.0.0",
-        "grunt-eslint": "20.1.0",
-        "grunt-mocha-test": "0.13.2",
-        "mocha": "3.4.2",
-        "jade": "1.11.0",
-        "proxyquire": "1.8.0",
-        "should": "11.2.1"
+        "bloggy-marked": "file:../bloggy-marked",
+        "bloggy-query": "file:../bloggy-query",
+        "express": "4.18.1",
+        "grunt": "1.5.3",
+        "grunt-cli": "1.4.3",
+        "grunt-contrib-watch": "1.1.0",
+        "grunt-eslint": "24.0.0",
+        "grunt-mocha-test": "0.13.3",
+        "mocha": "10.0.0",
+        "proxyquire": "2.1.3",
+        "pug": "3.0.2",
+        "should": "13.2.3"
     },
     "keywords": [
         "blog",

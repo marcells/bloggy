@@ -1,7 +1,7 @@
 {
     "name": "bloggy",
     "description": "Small and lightweight extensible blog engine.",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "author": "Marcell Spies <marcells@gmx.de>",
     "contributors": [
         {
@@ -15,8 +15,8 @@
         "slug": "8.0.0"
     },
     "devDependencies": {
-        "bloggy-marked": "file:../bloggy-marked",
-        "bloggy-query": "file:../bloggy-query",
+        "bloggy-query": "0.0.2",
+        "bloggy-marked": "0.0.5",
         "express": "4.18.1",
         "grunt": "1.5.3",
         "grunt-cli": "1.4.3",
